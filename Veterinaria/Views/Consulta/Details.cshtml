@@ -1,0 +1,206 @@
+﻿@using Veterinaria.Models
+
+@model Consulta
+@{
+    ViewBag.Title = "Consulta";
+    ViewBag.Diagnostico = "Diagnostico";
+}
+
+<div class="col-md-12">
+    <form method="post">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>@ViewBag.Title</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li class="pull-right">
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-xs-12 col-sm">
+                    <div class="block col-sm">
+                        <div class="block-content">
+                            <div class="row row-form">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Data")
+                                        <div class="xdisplay_inputx form-group has-feedback">
+                                            @Html.TextBox("data", Model.Data, new { disabled = true, id = "data", @class = "form-control has-feedback-left" })
+                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Status")
+                                        @Html.TextBox("status", Model.Status.ToString(), new { disabled = true, id = "status", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                            <div class="row row-form">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.Label("Cliente - Pet")
+                                        <select id="idpet" class="form-control" disabled name="idpet"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Atendente")
+                                        <select id="idatendente" class="form-control" disabled name="idatendente"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Veterinario")
+                                        <select id="idveterinario" class="form-control" disabled name="idveterinario"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="x_panel" >
+            <div class="x_title">
+                <h2>@ViewBag.Diagnostico</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li class="pull-right">
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content" >
+                <div class="col-xs-12 col-sm">
+                    <div class="block col-sm">
+                        <div class="block-content">
+                            <div class="row row-form">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        @Html.Label("Posologia")
+                                        @Html.TextBox("posologia", Model.Diagnostico?.Posologia, new { disabled = true, id = "posologia", @class = "form-control", @maxlength = 100 })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Medicação")
+                                        @Html.TextBox("medicacao", Model.Diagnostico?.Medicacao, new { disabled = true, id = "medicacao", @class = "form-control", @maxlength = 100 })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Descrição")
+                                        @Html.TextBox("descricao", Model.Diagnostico?.Descricao, new { disabled = true, id = "descricao", @class = "form-control", @maxlength = 100 })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="x_panel" style="height: auto;">
+            <div class="x_content">
+                <div class="row row-form">
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                            <a href="@Url.Action("Index", "Consulta")" class="btn btn-success pull-right">
+                                Voltar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts
+{
+
+    @Scripts.Render("~/Scripts/moment/moment.min.js")
+    @Scripts.Render("~/Scripts/datepicker/daterangepicker.js")
+    @Scripts.Render("~/Vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js")
+    @Scripts.Render("~/Vendors/validator/validator.js")
+    @Scripts.Render("~/Vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js")
+
+    <script>
+        $(document).ready(function () {
+            (function () {
+                $.ajax({
+                    url: '@Url.Action("ListarPets", "Consulta")',
+                    data: '{}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (json) {
+                        var clientes = $("#idpet");
+                        clientes.empty().append('<option value="0">Por favor selecione</option>');
+                        for (var i = 0; i < json.length; i++) {
+                            if(json[i].data == @Model.Pet.Id)
+                            clientes.append('<option selected="selected" value=' + json[i].data + '>' + json[i].value + '</option>');
+                            else
+                                clientes.append('<option  value=' + json[i].data + '>' + json[i].value + '</option>');
+
+                        }
+                    },
+                    error: function (xmlHttpRequest, textStatus, errorThrown) {
+                        console.log('some error occured', textStatus, errorThrown);
+                    }
+                });
+            })();
+            (function () {
+                $.ajax({
+                    url: '@Url.Action("ListarAtendentes", "Consulta")',
+                    data: '{}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (json) {
+                        var clientes = $("#idatendente");
+                        clientes.empty().append('<option  value="0">Por favor selecione</option>');
+
+                        for (var i = 0; i < json.length; i++){
+                            if(json[i].data == @Model.Atendente.Funcionario.Id)
+                                clientes.append('<option selected="selected" value=' + json[i].data + '>' + json[i].value + '</option>');
+                            else
+                                clientes.append('<option  value=' + json[i].data + '>' + json[i].value + '</option>');
+
+                    }  },
+                    error: function (xmlHttpRequest, textStatus, errorThrown) {
+                        console.log('some error occured', textStatus, errorThrown);
+                    }
+                });
+            })();
+            (function () {
+                $.ajax({
+                    url: '@Url.Action("ListarVeterinarios", "Consulta")',
+                    data: '{}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (json) {
+                        var clientes = $("#idveterinario");
+                        clientes.empty().append('<option value="0">Por favor selecione</option>');
+
+                        for (var i = 0; i < json.length; i++)
+                        {
+                            if(json[i].data == @Model.Veterinario.Funcionario.Id)
+                                clientes.append('<option selected="selected" value=' + json[i].data + '>' + json[i].value + '</option>');
+                            else
+                                clientes.append('<option  value=' + json[i].data + '>' + json[i].value + '</option>');
+
+                        }
+                },
+                    error: function (xmlHttpRequest, textStatus, errorThrown) {
+                        console.log('some error occured', textStatus, errorThrown);
+                    }
+                });
+            })();
+            $('#data').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4",
+                format: 'DD/MM/YYYY'
+            });
+        });
+</script>
+}

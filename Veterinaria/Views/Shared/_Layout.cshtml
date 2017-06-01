@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewBag.Title </title>
+
+    <!-- Bootstrap core CSS -->
+    @Styles.Render("~/Vendors/bootstrap/dist/css/bootstrap.min.css")
+    @Styles.Render("~/Vendors/font-awesome/css/font-awesome.min.css")
+    @Styles.Render("~/Vendors/nprogress/nprogress.css")
+    @Styles.Render("~/Content/custom.min.css")
+
+    <!--[if lt IE 9]>
+    <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+    <![endif]-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 menu_fixed left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="@Url.Action("Index", "Home")" class="site_title"><i class="fa fa-paw"></i> <span>Veterinaria</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                  
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>Cadastro</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a><i class="fa fa-group"></i> Pessoa <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Cadastrar", "Create", "Pessoa")</li>
+                                        <li>@Html.ActionLink("Listar", "Index", "Pessoa")</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-cubes"></i> Produto <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Cadastrar", "Create", "Produto")</li>
+                                        <li>@Html.ActionLink("Listar", "Index", "Produto")</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-bug"></i> Pet <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Cadastrar", "Create", "Pet")</li>
+                                        <li>@Html.ActionLink("Listar", "Index", "Pet")</li>    
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="menu_section">
+                            <h3>Operações</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a><i class="fa fa-calendar"></i> Consulta <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Nova", "Create", "Consulta")</li>
+                                        <li>@Html.ActionLink("Listar", "Index", "Consulta")</li>   
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-money"></i> Venda <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">                              
+                                        <li>@Html.ActionLink("Nova", "Create", "Venda")</li>
+                                        <li>@Html.ActionLink("Listar", "Index", "Venda")</li>                                      
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="../images/user.png" alt="">Usuario
+                                  
+                                </a>
+                            
+                            </li>
+                       
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+
+
+            <div class="right_col" role="main">
+                @RenderBody()
+               
+            </div>
+            <footer>
+                <div class="pull-right">
+                   @DateTime.Now.Year
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+        </div>
+    </div>
+
+
+            <!-- jQuery -->
+            @Scripts.Render("~/Vendors/jquery/dist/jquery.min.js")
+
+            @Scripts.Render("~/Vendors/bootstrap/dist/js/bootstrap.min.js")
+
+            @Scripts.Render("~/Vendors/fastclick/lib/fastclick.js")
+
+            @Scripts.Render("~/Vendors/nprogress/nprogress.js")
+
+            @Scripts.Render("~/Scripts/custom.min.js")
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

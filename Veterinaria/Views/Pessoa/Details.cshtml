@@ -1,0 +1,260 @@
+﻿@using Veterinaria.Models
+
+@model Pessoa
+@{
+    ViewBag.Title = "Cadastro";
+    ViewBag.Pessoa = "Cadastro de Pessoa";
+    ViewBag.Cliente = " Cadastro de Cliente";
+    ViewBag.Funcionario = "Cadastro de Funcionario";
+}
+
+<div class="col-md-12">
+    <form method="post">
+         <div class="x_panel">
+            <div class="x_title">
+                <h2>@ViewBag.Pessoa</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li class="pull-right">
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-xs-12 col-sm">
+                    <div class="block col-sm">
+                        <div class="block-content">
+                            <div class="row row-form">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.Label("Nome")
+                                        @Html.TextBox("nome", Model.Nome, new { disabled= true, id = "nome", @class = "form-control", @maxlength = 100, @required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.Label("CPF")
+                                        <input type="text" class="form-control" disabled value="@Model.Cpf" name="cpf" id="cpf" data-inputmask="'mask' : '999.999.999-99'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-form">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Data Nascimento")
+                                        <div class="xdisplay_inputx form-group has-feedback">
+                                            @Html.TextBox("data_nascimento", Model.DataNascimento, new { disabled = true, id = "dataNascimento", @class = "form-control has-feedback-left" })
+                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Telefone Fixo")
+                                        <input type="text" class="form-control" disabled value="@Model.TelefoneFixo" name="telefone_fixo" id="telefone_fixo" data-inputmask="'mask' : '(99) 9999-9999'">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Telefone Celular")
+                                        <input type="text" class="form-control" disabled value="@Model.TelefoneCelular" name="telefone_celular" id="telefone_celular" data-inputmask="'mask' : '(99) 99999-9999'">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-form">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.Label("Endereco")
+                                        @Html.TextBox("endereco", Model.Endereco, new { disabled = true, id = "endereco", @class = "form-control", @maxlength = 11 })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Bairro")
+                                        @Html.TextBox("bairro", Model.Bairro, new { disabled = true,  id = "bairro", @class = "form-control", @maxlength = 10 })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Cidade")
+                                        @Html.TextBox("cidade", Model.Cidade?.Nome, new { disabled = true, id = "cidade", @class = "form-control"})
+                                        @Html.TextBox("Idcidade", Model.Cidade?.Id, new { disabled = true, id = "idcidade", @class = "form-control hide" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-form">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Complemento")
+                                        @Html.TextBox("complemento", Model.Complemento, new { disabled = true, id = "complemento", @class = "form-control", @maxlength = 10 })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Numero")
+                                        @Html.TextBox("numero", Model.Numero, new { disabled = true, id = "numero", @class = "form-control", @maxlength = 11 })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="x_panel" >
+            <div class="x_title">
+                <h2>@ViewBag.Cliente</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li class="pull-right">
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-xs-12 col-sm">
+                    <div class="block col-sm">
+                        <div class="block-content">
+                            <div class="row row-form">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        @Html.Label("Email")
+                                        @Html.TextBox("email", Model.Cliente?.Email, new { disabled = true, id = "email", @class = "form-control", @maxlength = 100 })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="x_panel" >
+            <div class="x_title">
+                <h2>@ViewBag.Funcionario</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li class="pull-right">
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-xs-12 col-sm">
+                    <div class="block col-sm">
+                        <div class="block-content">
+                            <div class="row row-form">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.Label("Número do Contrato")
+                                        @Html.TextBox("numerocontrato", Model.Funcionario?.NumeroContrato, new { disabled = true, id = "numerocontrato", @class = "form-control", @maxlength = 15 })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.Label("Número do CRMV")
+                                        @Html.TextBox("numerocrmv", Model.Funcionario?.NumeroContrato, new { disabled = true, id = "numerocrmv", @class = "form-control", @maxlength = 15 })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-form">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Data Admissão")
+                                        <div class="xdisplay_inputx form-group has-feedback">
+                                            @Html.TextBox("data_admissao", Model.Funcionario?.DataAdmisao, new { disabled = true, id = "dataAdmissao", @class = "form-control has-feedback-left" })
+                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Salário")
+                                        @Html.TextBox("salario", Model.Funcionario?.Salario, new { disabled = true, id = "salario", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Setor / 0 Atendimento 1 - Veterinario")
+                                        @Html.TextBox("setor", Model.Funcionario?.Funcao, new { disabled = true, id = "setor", @class = "form-control" })                       
+                                    </div>
+                                </div>                
+                            </div>          
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </div>
+
+        <div class="x_panel" style="height: auto;">
+            <div class="x_content" >
+                <div class="row row-form">
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                            <a href="@Url.Action("Index", "Pessoa")" class="btn btn-success pull-right">
+                                Voltar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts 
+{
+
+    @Scripts.Render("~/Scripts/moment/moment.min.js")
+    @Scripts.Render("~/Scripts/datepicker/daterangepicker.js")
+    @Scripts.Render("~/Vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js")
+    @Scripts.Render("~/Vendors/validator/validator.js")
+    @Scripts.Render("~/Vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js")
+
+    <script>
+        $(document).ready(function () {
+            $(":input").inputmask();
+
+            $('#dataNascimento').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4",
+                format: 'DD/MM/YYYY'
+
+            });
+
+            $('#dataAdmissao').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4",
+                format: 'DD/MM/YYYY'
+            });
+
+            $('#cidade').autocomplete({
+                lookup: function (query, done) {
+                    $.ajax({
+                        url: '@Url.Action("ListarCidadesAutocomplete", "Pessoa")',
+                        data: { 'filtro': query },
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (json) {
+                            // call autocomplete callback method with results
+
+                            Suggestions = [];
+                            for (var i = 0; i < json.length; i++) {
+                                Suggestions.push({ "value": json[i].value, "data": json[i].data });
+                            };
+                            var result = { suggestions: Suggestions };
+                            done(result);
+                        },
+                        error: function (xmlHttpRequest, textStatus, errorThrown) {
+                            console.log('some error occured', textStatus, errorThrown);
+                        }
+                    });
+                }, onSelect: function (suggestion) {
+                    $("#idcidade").val("" + suggestion.data);
+                },
+                minChars: 3
+            });
+        });
+    </script>
+}

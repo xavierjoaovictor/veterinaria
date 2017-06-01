@@ -1,0 +1,75 @@
+﻿@using Veterinaria.Models
+
+@model List<Consulta>
+@{
+    ViewBag.Title = "Listar Consultas";
+}
+
+<div class="col-md-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>@ViewBag.Title</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Data</th>
+                        <th>Cliente - Pet</th>
+                        <th>Atendente</th>
+                        <th>Veterinario</th>
+                        <th>Status</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Consulta objeto in Model)
+                    {
+                        <tr>
+                            <td> @objeto.Id </td>
+                            <td> @objeto.Data.ToString() </td>
+                            <td> @objeto.Pet.Cliente.Nome - @objeto.Pet.Nome</td>
+                            <td> @objeto.Atendente.Nome</td>
+                            <td> @objeto.Veterinario.Nome</td>
+                            <td> @objeto.Status.ToString()</td>
+                            <td>
+                                <a href="@Url.Action("Details", "Consulta")?id=@objeto.Id" }" class="btn btn-info">
+                                    <span class="fa fa-file-o" aria-hidden="true"></span>
+                                </a>
+
+                                <a href="@Url.Action("Edit", "Consulta")?id=@objeto.Id" }" class="btn btn-warning" placeholder="Editar">
+                                    <span class="fa fa-edit" aria-hidden="true"></span>
+                                </a>
+
+                                <a href="@Url.Action("Delete", "Consulta")?id=@objeto.Id" }" class="btn btn-danger">
+                                    <span class="fa fa-warning" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts 
+{
+    @Styles.Render("~/Vendors/datatables.net-bs/css/dataTables.bootstrap.min.css")
+    @Styles.Render("~/Vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css")
+    @Styles.Render("~/Vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css")
+
+    @Scripts.Render("~/Vendors/datatables.net/js/jquery.dataTables.min.js")
+    @Scripts.Render("~/Vendors/datatables.net-bs/js/dataTables.bootstrap.min.js")
+    @Scripts.Render("~/Vendors/datatables.net-responsive/js/dataTables.responsive.min.js")
+    @Scripts.Render("~/Vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js")
+    @Scripts.Render("~/Vendors/datatables.net-scroller/js/datatables.scroller.min.js")
+
+    <script>
+        $(document).ready(function () {
+            $('#datatable-responsive').DataTable();
+        });
+    </script>
+}

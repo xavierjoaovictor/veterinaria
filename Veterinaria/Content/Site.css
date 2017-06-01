@@ -1,0 +1,189 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+/*
+ * Examples
+ *
+ * Isolated sections of example content for each component or feature. Usually
+ * followed by a code snippet.
+ */
+
+.bs-grupo {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+  border-width: 1px 0;
+  -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+          box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+}
+/* Echo out a label for the example */
+.bs-grupo:after {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #959595;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bs-grupo-padded-bottom {
+  padding-bottom: 24px;
+}
+
+/* Tweak display of the code snippets when following an example */
+.bs-grupo + .highlight,
+.bs-grupo + .zero-clipboard + .highlight {
+  margin: -15px -15px 15px;
+  border-width: 0 0 1px;
+  border-radius: 0;
+}
+
+/* Make the examples and snippets not full-width */
+@media (min-width: 768px) {
+  .bs-grupo {
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #fff;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .bs-grupo + .highlight,
+  .bs-grupo + .zero-clipboard + .highlight {
+    margin-top: -16px;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 1px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .bs-grupo-standalone {
+    border-radius: 4px;
+  }
+}
+
+/* Undo width of container */
+.bs-grupo .container {
+  width: auto;
+}
+
+/* Tweak content of examples for optimum awesome */
+.bs-grupo > p:last-child,
+.bs-grupo > ul:last-child,
+.bs-grupo > ol:last-child,
+.bs-grupo > blockquote:last-child,
+.bs-grupo > .form-control:last-child,
+.bs-grupo > .table:last-child,
+.bs-grupo > .navbar:last-child,
+.bs-grupo > .jumbotron:last-child,
+.bs-grupo > .alert:last-child,
+.bs-grupo > .panel:last-child,
+.bs-grupo > .list-group:last-child,
+.bs-grupo > .well:last-child,
+.bs-grupo > .progress:last-child,
+.bs-grupo > .table-responsive:last-child > .table {
+  margin-bottom: 0;
+}
+.bs-grupo > p > .close {
+  float: none;
+}
+
+/* Typography */
+.bs-grupo-type .table .type-info {
+  color: #767676;
+  vertical-align: middle;
+}
+.bs-grupo-type .table td {
+  padding: 15px 0;
+  border-color: #eee;
+}
+.bs-grupo-type .table tr:first-child td {
+  border-top: 0;
+}
+.bs-grupo-type h1,
+.bs-grupo-type h2,
+.bs-grupo-type h3,
+.bs-grupo-type h4,
+.bs-grupo-type h5,
+.bs-grupo-type h6 {
+  margin: 0;
+}
+
+/* Contextual background colors */
+.bs-grupo-bg-classes p {
+  padding: 15px;
+}
+
+/* Images */
+.bs-grupo > .img-circle,
+.bs-grupo > .img-rounded,
+.bs-grupo > .img-thumbnail {
+  margin: 5px;
+}
+
+/* Tables */
+.bs-grupo > .table-responsive > .table {
+  background-color: #fff;
+}
+
+/* Buttons */
+.bs-grupo > .btn,
+.bs-grupo > .btn-group {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.bs-grupo > .btn-toolbar + .btn-toolbar {
+  margin-top: 10px;
+}
+
+/* Forms */
+.bs-grupo-control-sizing select,
+.bs-grupo-control-sizing input[type="text"] + input[type="text"] {
+  margin-top: 10px;
+}
+.bs-grupo-form .input-group {
+  margin-bottom: 10px;
+}
+.bs-grupo > textarea.form-control {
+  resize: vertical;
+}
+
+/* List groups */
+.bs-grupo > .list-group {
+  max-width: 400px;
+}
+
+/* Navbars */
+.bs-grupo .navbar:last-child {
+  margin-bottom: 0;
+}

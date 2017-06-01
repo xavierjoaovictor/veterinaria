@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Veterinaria.Controllers.PessoaController">
+    <Position X="2.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAEAAAAEAAAAAEAAEASAQEAAAAAQAA=</HashCode>
+      <FileName>Controllers\PessoaController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Veterinaria.DAO.CidadeDAO">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <AssociationLine Name="PessoaController" Type="Veterinaria.Controllers.PessoaController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.25" Y="4.75" />
+        <Point X="1.25" Y="2.688" />
+        <Point X="2.5" Y="2.688" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAIEABAAAQAAEAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DAO\CidadeDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PessoaController" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.1" Collapsed="true" />
+  </Class>
+  <Class Name="Veterinaria.DAO.ClienteDAO">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <AssociationLine Name="PetController" Type="Veterinaria.Controllers.PetController" ManuallyRouted="true">
+      <Path>
+        <Point X="2.844" Y="4.75" />
+        <Point X="2.844" Y="4.011" />
+        <Point X="4.761" Y="4.011" Type="JumpStart" />
+        <Point X="4.927" Y="4.011" Type="JumpEnd" />
+        <Point X="6.917" Y="4.011" Type="JumpStart" />
+        <Point X="7.083" Y="4.011" Type="JumpEnd" />
+        <Point X="8.292" Y="4.011" Type="JumpStart" />
+        <Point X="8.458" Y="4.011" Type="JumpEnd" />
+        <Point X="8.5" Y="4.011" />
+        <Point X="8.5" Y="0.5" />
+        <Point X="14.625" Y="0.5" />
+        <Point X="14.625" Y="2.008" />
+        <Point X="15" Y="2.008" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.482" Y="1.603" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ConsultaController" Type="Veterinaria.Controllers.ConsultaController" ManuallyRouted="true">
+      <Path>
+        <Point X="3.172" Y="4.75" />
+        <Point X="3.172" Y="4.026" />
+        <Point X="4.844" Y="4.026" />
+        <Point X="4.844" Y="2.234" />
+        <Point X="8.292" Y="2.234" Type="JumpStart" />
+        <Point X="8.583" Y="2.234" Type="JumpEnd" />
+        <Point X="8.75" Y="2.234" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.813" Y="0.074" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEQAAEAAACAAAAAAAEABAAAAAgEAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DAO\ClienteDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PetController" />
+      <Property Name="ConsultaController" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.1" Collapsed="true" />
+  </Class>
+  <Class Name="Veterinaria.DAO.PessoaDAO">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <AssociationLine Name="PessoaController" Type="Veterinaria.Controllers.PessoaController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="4.75" />
+        <Point X="7" Y="2.688" />
+        <Point X="4.927" Y="2.688" Type="JumpStart" />
+        <Point X="4.761" Y="2.688" Type="JumpEnd" />
+        <Point X="4.75" Y="2.688" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.344" Y="0.115" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAIEABAAAAAAEAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DAO\PessoaDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PessoaController" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.294" Collapsed="true" />
+  </Class>
+  <Class Name="Veterinaria.DAO.FuncionarioDAO">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <AssociationLine Name="ConsultaController" Type="Veterinaria.Controllers.ConsultaController">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.826" Y="0.032" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="DiagnosticoController" Type="Veterinaria.Controllers.DiagnosticoController">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.73" Y="1.782" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="DiagnosticoController1" Type="Veterinaria.Controllers.DiagnosticoController" ManuallyRouted="true">
+      <Path>
+        <Point X="4.41" Y="4.75" />
+        <Point X="4.41" Y="4.165" />
+        <Point X="6.917" Y="4.165" Type="JumpStart" />
+        <Point X="7.083" Y="4.165" Type="JumpEnd" />
+        <Point X="8.375" Y="4.165" />
+        <Point X="8.375" Y="0.625" />
+        <Point X="8.417" Y="0.625" Type="JumpStart" />
+        <Point X="8.583" Y="0.625" Type="JumpEnd" />
+        <Point X="11.034" Y="0.625" />
+        <Point X="11.034" Y="2.766" />
+        <Point X="11.75" Y="2.766" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="3.513" Y="1.989" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEQAAEAAACAQAAAAAEABAAAAAAEAAAAAAAAAAYAgAAA=</HashCode>
+      <FileName>DAO\FuncionarioDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ConsultaController" />
+      <Property Name="DiagnosticoController" />
+      <Property Name="DiagnosticoController1" />
+      <Property Name="Venda" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.621" Collapsed="true" />
+  </Class>
+  <Class Name="Veterinaria.Models.Cidade" Collapsed="true">
+    <Position X="0.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAACAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Models\Cidade.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CidadeDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veterinaria.Models.Cliente" Collapsed="true">
+    <Position X="2.25" Y="8.25" Width="1.5" />
+    <InheritanceLine Type="Veterinaria.Models.Pessoa" FixedFromPoint="true">
+      <Path>
+        <Point X="6.562" Y="8.812" />
+        <Point X="6.562" Y="9.316" />
+        <Point X="3.375" Y="9.316" />
+        <Point X="3.375" Y="8.941" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Venda" Type="Veterinaria.Models.Venda" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.938" Y="8.941" />
+        <Point X="2.938" Y="10.093" />
+        <Point X="21.625" Y="10.093" />
+        <Point X="21.625" Y="8.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Cliente.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClienteDAO" />
+      <Property Name="Venda" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veterinaria.Models.Funcionario" Collapsed="true">
+    <Position X="4" Y="8.25" Width="1.5" />
+    <InheritanceLine Type="Veterinaria.Models.Pessoa" FixedFromPoint="true">
+      <Path>
+        <Point X="6.562" Y="8.812" />
+        <Point X="6.562" Y="9.316" />
+        <Point X="4.75" Y="9.316" />
+        <Point X="4.75" Y="8.941" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAEQAAAAAAAAAAAAgAAAAAAgAAAAgAAAAAAAAIAA=</HashCode>
+      <FileName>Models\Funcionario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FuncionarioDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veterinaria.Models.Pessoa" Collapsed="true">
+    <Position X="5.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAAAAAABAAAAACAEAACAAACAAAIAAAAAAAAAAAGBEAA=</HashCode>
+      <FileName>Models\Pessoa.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PessoaDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veterinaria.Controllers.ConsultaController">
+    <Position X="8.75" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAIAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ConsultaController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Veterinaria.DAO.ConsultaDAO">
+    <Position X="8.75" Y="4.25" Width="1.75" />
+    <AssociationLine Name="ConsultaController" Type="Veterinaria.Controllers.ConsultaController" FixedFromPoint="true">
+      <Path>
+        <Point X="10.125" Y="4.25" />
+        <Point X="10.125" Y="3.396" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEQAAEAAACAAAAAAAEABAAAAAAEAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DAO\ConsultaDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ConsultaController" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.137" Collapsed="true" />
+  </Class>
+  <Class Name="Veterinaria.Models.Consulta" Collapsed="true">
+    <Position X="8.75" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\Consulta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ConsultaDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veterinaria.Controllers.DiagnosticoController">
+    <Position X="11.75" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABIAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\DiagnosticoController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Veterinaria.DAO.DiagnosticoDAO">
+    <Position X="11.75" Y="4.25" Width="2" />
+    <AssociationLine Name="DiagnosticoController" Type="Veterinaria.Controllers.DiagnosticoController" FixedFromPoint="true">
+      <Path>
+        <Point X="13.393" Y="4.25" />
+        <Point X="13.393" Y="3.396" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAEABAAAAAAEAAAAAAAAAAQAgAAA=</HashCode>
+      <FileName>DAO\DiagnosticoDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DiagnosticoController" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Veterinaria.Models.Diagnostico" Collapsed="true">
+    <Position X="11.75" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAABAAAQAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Diagnostico.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DiagnosticoDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veterinaria.Controllers.PetController">
+    <Position X="15" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQBAAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\PetController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Veterinaria.DAO.PetDAO">
+    <Position X="15" Y="4.25" Width="1.75" />
+    <AssociationLine Name="PetController" Type="Veterinaria.Controllers.PetController" FixedFromPoint="true">
+      <Path>
+        <Point X="16.438" Y="4.25" />
+        <Point X="16.438" Y="3.267" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAEABAAAAAgEAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DAO\PetDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PetController" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Veterinaria.Models.Pet" Collapsed="true">
+    <Position X="15" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAgAAAAAAAAAIAAEAAAAAAAAEAAAQ=</HashCode>
+      <FileName>Models\Pet.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PetDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veterinaria.Controllers.ProdutoController">
+    <Position X="17.5" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAABAAAAAAAAAAAAAIEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\PetController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="VendaController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veterinaria.DAO.ProdutoDAO">
+    <Position X="17.5" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAEABAAAAAAEAgAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DAO\PetDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ProdutoController" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Veterinaria.Models.Produto" Collapsed="true">
+    <Position X="17.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Produto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ProdutoDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Veterinaria.Controllers.VendaController">
+    <Position X="20.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAABAAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\PetController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Veterinaria.DAO.VendaDAO">
+    <Position X="20.25" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAEABAAAAAAEAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DAO\PetDAO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Veterinaria.Models.Venda" Collapsed="true">
+    <Position X="20.25" Y="7.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAABAAAABgAAAAAAAAACAA=</HashCode>
+      <FileName>Models\Produto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="VendaDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

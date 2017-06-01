@@ -1,0 +1,150 @@
+﻿@using Veterinaria.Models
+
+@model Pet
+@{
+    ViewBag.Title = "Cadastro de Pets";
+
+    if (!String.IsNullOrEmpty(ViewBag.Erro))
+    {
+        <script>alert("@ViewBag.Erro");</script>
+    }
+}
+
+<div class="col-md-12">
+    <form method="post">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>@ViewBag.Title</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li class="pull-right">
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-xs-12 col-sm">
+                    <div class="block col-sm">
+                        <div class="block-content">
+                            <div class="row row-form">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.Label("Nome")
+                                        @Html.TextBox("nome", Model.Nome, new { id = "nome", @class = "form-control", @maxlength = 100, @required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-form">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Data Nascimento")
+                                        <div class="xdisplay_inputx form-group has-feedback">
+                                            @Html.TextBox("data_nascimento", Model.DataNascimento, new { id = "data_nascimento", @class = "form-control has-feedback-left" })
+                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Raça")
+                                        <input type="text" class="form-control" value="@Model.Raca" name="raca" id="raca" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Sexo / 0 - Macho 1 - Femea")
+                                        <input type="text" class="form-control" value="@Model.Sexo" name="sexo" id="sexo" data-inputmask="'mask' : '9'"/>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Tipo")
+                                        <input type="text" class="form-control" value="@Model.Tipo" name="tipo" id="tipo" data-inputmask="'mask' : '9'"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-form">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.Label("Cliente")
+                                        @Html.DropDownList("idcliente", Model.ListaClientes, new { id = "idcliente", @class = "form-control" } )
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="x_panel" style="height: auto;">
+            <div class="x_content">
+                <div class="row row-form">
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                            <button type="submit" class="btn btn-success pull-right">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts 
+{
+
+    @Scripts.Render("~/Scripts/moment/moment.min.js")
+    @Scripts.Render("~/Scripts/datepicker/daterangepicker.js")
+    @Scripts.Render("~/Vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js")
+    @Scripts.Render("~/Vendors/validator/validator.js")
+    @Scripts.Render("~/Vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js")
+
+    <script>
+        $(document).ready(function () {
+            $(":input").inputmask();
+
+            $('#dataNascimento').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4",
+                format: 'DD/MM/YYYY'
+
+            });
+
+            $('#dataAdmissao').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4",
+                format: 'DD/MM/YYYY'
+            });
+
+            $('#cidade').autocomplete({
+                lookup: function (query, done) {
+
+                    $.ajax({
+                        url: '@Url.Action("ListarCidadesAutocomplete", "Pessoa")',
+                        data: { 'filtro': query },
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (json) {
+                            // Call autocomplete callback method with results
+
+                            Suggestions = [];
+                            for (var i = 0; i < json.length; i++) {
+                                Suggestions.push({ "value": json[i].value, "data": json[i].data });
+                            };
+                            var result = { suggestions: Suggestions };
+                            done(result);
+                        },
+                        error: function (xmlHttpRequest, textStatus, errorThrown) {
+                            console.log('some error occured', textStatus, errorThrown);
+                        }
+                    });
+
+                }, onSelect: function (suggestion) {
+                    $("#idcidade").val("" + suggestion.data);
+                },
+                minChars: 3
+            });
+        });
+    </script>
+}

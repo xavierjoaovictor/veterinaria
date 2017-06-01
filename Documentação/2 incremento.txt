@@ -1,0 +1,10 @@
+Segundo incremento
+
+* Caso de uso
+	-CSU 08 - Consultar.
+	-CSU 07 - Diagnosticar (Não possui Rquisitos, nós vamos ter q fazer inclusive fluxo alternativo e excessão).
+	-CSU 14 - verificar estoque.
+	
+* Entrega dia 15/10 Todos os tres feitos com obrigatoriedade do boot Strap.
+* 08/10 - Avaliação em cada grupo, para ver como está
+* 22/10 - Prova em grupo 30pts

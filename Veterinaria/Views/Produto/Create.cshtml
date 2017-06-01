@@ -1,0 +1,99 @@
+﻿@using Veterinaria.Models
+
+@model Produto
+@{
+    ViewBag.Title = "Cadastro de Produto";
+
+    if (!String.IsNullOrEmpty(ViewBag.Erro))
+    {
+    <script>alert("@ViewBag.Erro");</script>
+    }
+
+
+}
+<div class="col-md-12">
+    <form method="post">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>@ViewBag.Title</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li class="pull-right">
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <div class="col-xs-12 col-sm">
+                    <div class="block col-sm">
+                        <div class="block-content">
+                            <div class="row row-form">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.Label("Nome")
+                                        @Html.TextBox("nome", Model.Nome, new { id = "nome", @class = "form-control", @maxlength = 100, @required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.Label("Descricao")
+                                        @Html.TextBox("descricao", Model.Descricao, new { id = "descricao", @class = "form-control", @maxlength = 200 })
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row row-form">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Valor Unitario")
+                                        @Html.TextBox("valor", Model.Valor.ToString(), new { id = "valor", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        @Html.Label("Quantidade em Estoque")
+                                        @Html.TextBox("qtdestoque", Model.Qtd_Estoque.ToString(), new { id = "qtdestoque", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="x_panel" style="height: auto;">
+            <div class="x_content">
+                <div class="row row-form">
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                            <button type="submit" class="btn btn-success pull-right">Salvar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+@section scripts {
+
+    @Scripts.Render("~/Vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js")
+    @Scripts.Render("~/Vendors/validator/validator.js")
+
+    <script>
+        $(document).ready(function () {
+            $(":input").inputmask();
+
+
+
+        });
+    </script>
+}
